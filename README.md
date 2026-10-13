@@ -1,6 +1,3 @@
-# animal-toxin-atlas
-An interactive atlas for exploring animal toxins, curated protein annotations, sequence features, taxonomy, clinical relevance and protein relationships.
-
 # Animal Toxin Atlas
 
 An interactive browser for exploring animal toxins, their sequence and functional annotations, structural features, taxonomy, and relationships.
