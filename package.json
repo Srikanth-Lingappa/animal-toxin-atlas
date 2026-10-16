@@ -1,0 +1,15 @@
+{
+  "name": "animal-toxin-atlas",
+  "version": "1.0.0",
+  "description": "Interactive single-file browser for UniProtKB/Swiss-Prot animal venom protein records",
+  "private": true,
+  "scripts": {
+    "build": "python scripts/build_html.py",
+    "stats": "python scripts/recompute_stats.py --out stats.json",
+    "test": "python scripts/recompute_stats.py --out stats.json && node tests/smoke.js index.html stats.json"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.0.0"
+  },
+  "license": "MIT"
+}

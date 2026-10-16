@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use Animal Toxin Atlas, please cite UniProt and the Tox-Prot programme first, then this software."
+title: "Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot animal venom protein records"
+type: software
+version: 1.0.0
+date-released: "YYYY-MM-DD"            # fill in at release
+license: MIT
+repository-code: "https://github.com/<your-github-user>/animal-toxin-atlas"
+url: "https://<your-github-user>.github.io/animal-toxin-atlas/"
+abstract: >-
+  A single-file, browser-based atlas of 8,274 reviewed UniProtKB/Swiss-Prot animal venom protein records with
+  disulfide connectivity patterns, AlphaFold confidence, ProtT5/ProstT5 embedding maps, structural-gap and potency
+  views, and local sequence similarity search.
+keywords:
+  - venom
+  - animal toxins
+  - UniProt
+  - Tox-Prot
+  - AlphaFold
+  - protein language models
+authors:
+  - family-names: "Lingappa"
+    given-names: "Srikanth"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+references:
+  - type: article
+    authors: [{name: "The UniProt Consortium"}]
+    title: "UniProt: the Universal Protein Knowledgebase in 2025"
+    journal: "Nucleic Acids Research"
+    year: 2025
+    doi: "10.1093/nar/gkae1010"
+  - type: article
+    title: "The UniProtKB/Swiss-Prot Tox-Prot program: a central hub of integrated venom protein data"
+    journal: "Toxicon"
+    year: 2012
+    doi: "10.1016/j.toxicon.2012.03.010"
+    authors:
+      - {family-names: "Jungo", given-names: "Florence"}
+      - {family-names: "Bougueleret", given-names: "Lydie"}
+      - {family-names: "Xenarios", given-names: "Ioannis"}
+      - {family-names: "Poux", given-names: "Sylvain"}
+  - type: article
+    title: "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences"
+    journal: "Nucleic Acids Research"
+    year: 2024
+    doi: "10.1093/nar/gkad1011"
+    authors: [{family-names: "Varadi", given-names: "Mihaly"}]
