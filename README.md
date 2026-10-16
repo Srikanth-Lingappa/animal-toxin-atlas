@@ -1,7 +1,7 @@
 # Animal Toxin Atlas
 
-An interactive browser for **8,274 reviewed UniProtKB/Swiss-Prot animal venom protein records** (Tox-Prot). It is a
-single HTML file that runs entirely in your browser: no server, no install, no account.
+An interactive browser for **8,274 reviewed UniProtKB/Swiss-Prot animal toxin protein records** (Tox-Prot). It is a
+single HTML file that runs entirely in your browser: no server, no install.
 
 ![Animal Toxin Atlas](animal-toxin-atlas.png) 
 
