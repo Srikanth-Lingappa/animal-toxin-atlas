@@ -3,7 +3,7 @@
 An interactive browser for **8,274 reviewed UniProtKB/Swiss-Prot animal venom protein records** (Tox-Prot). It is a
 single HTML file that runs entirely in your browser: no server, no install, no account.
 
-**Live version:** `https://<your-github-user>.github.io/animal-toxin-atlas/` &nbsp;·&nbsp; **Or:** download `index.html` and open it.
+**Live version:** `https://srikanth-lingappa.github.io/animal-toxin-atlas/` &nbsp;·&nbsp; **Or:** download `index.html` and open it.
 
 ## What you can do with it
 
@@ -28,7 +28,7 @@ open index.html          # or double-click it; any modern browser works
 ```
 
 Needs a browser with `DecompressionStream` (Chrome/Edge 80+, Firefox 113+, Safari 16.4+).
-Searches and pasted sequences never leave your browser. The only outside request is the font stylesheet from Google Fonts.
+Searches and pasted sequences never leave your browser.
 
 ## Data
 
