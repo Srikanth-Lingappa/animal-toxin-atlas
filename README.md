@@ -22,7 +22,7 @@ single HTML file that runs entirely in your browser: no server, no install, no a
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-github-user>/animal-toxin-atlas.git
+git clone https://github.com/srikanth-lingappa/animal-toxin-atlas.git
 cd animal-toxin-atlas
 open index.html          # or double-click it; any modern browser works
 ```
