@@ -1,0 +1,135 @@
+<!-- html/tab-statistics.html: Statistics tab: Overview and Sequence & AlphaFold pages. -->
+  <!-- ===== STATS TAB ===== -->
+  <section id="tab-stats" style="display:none;">
+    <div class="stats-wrap">
+      <div class="hero" style="padding-top:22px;">
+        <p class="hero-lede">A closer look at the catalogue — click any bar in the category chart on the Overview to scope the other charts, on both pages, to that group.</p>
+        <div id="scopePill"></div>
+      </div>
+
+      <div class="viewtabs subtabs" style="border-bottom:1px solid var(--line); margin:4px 0 20px;">
+        <button class="active" data-ssub="overview">Overview</button>
+        <button data-ssub="seq">Sequence &amp; AlphaFold</button>
+      </div>
+
+      <div id="stats-overview">
+      <div class="hl-ribbon" id="hlRibbon"></div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>By taxonomic category</h3>
+          <div class="sub">click a bar to scope the page</div>
+          <div class="barlist" id="chartCategory"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Top source organisms</h3>
+          <div class="sub" id="subOrganism">by number of characterized toxins</div>
+          <div class="barlist" id="chartOrganism"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Top toxin classes</h3>
+          <div class="sub" id="subClass">broad grouping, e.g. 3FTx, SVMP, PLA2, disintegrin</div>
+          <div class="barlist" id="chartClass"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Top protein families</h3>
+          <div class="sub" id="subFamily">specific UniProt family / superfamily classification</div>
+          <div class="barlist" id="chartFamily"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Top InterPro entries</h3>
+          <div class="sub" id="subIpr">domain/family signatures matched on the sequence, top 12</div>
+          <div class="barlist" id="chartIpr"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Top mechanisms of action</h3>
+          <div class="sub" id="subMf">GO molecular function &mdash; what the toxin does to its target, top 12</div>
+          <div class="barlist" id="chartMf"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Sequence length distribution</h3>
+          <div class="sub" id="statsScope2">amino acids</div>
+          <div class="histwrap" id="histChart"></div>
+          <div class="histaxis" id="histAxis"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Evidence &amp; annotation coverage</h3>
+          <div class="sub" id="subCoverage">share of records with each type of evidence</div>
+          <div class="barlist" id="chartCoverage"></div>
+        </div>
+
+        <div class="chart-card" style="grid-column:1/-1;">
+          <h3>Sequence length by taxonomic category</h3>
+          <div class="sub">min · 25th–75th percentile box · median (◆) · max, amino acids — log scale</div>
+          <div class="boxplot" id="boxPlot"></div>
+        </div>
+
+        <div class="chart-card" style="grid-column:1/-1;">
+          <h3>Toxin class by taxonomic category</h3>
+          <div class="sub">where each major toxin class is found — darker = more records</div>
+          <div class="matrix-scroll"><div class="matrix" id="matrixChart"></div></div>
+        </div>
+
+      </div>
+      </div>
+
+      <div id="stats-seq" style="display:none;">
+      <div class="chart-grid">
+        <h2 class="stats-sec" style="grid-column:1/-1;">Sequence composition</h2>
+
+        <div class="chart-card" style="grid-column:1/-1;">
+          <div class="aa-head">
+            <div><h3>Amino acid composition</h3>
+            <div class="sub" id="subAa">share of all residues</div></div>
+            <div class="seg" id="aaMode"><button class="active" data-m="mature">Mature region</button><button data-m="full">Full precursor</button></div>
+          </div>
+          <div class="barlist aa-list" id="chartAa"></div>
+          <div class="who-map-legend" style="margin-top:12px;">
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:var(--coral)"></span>cysteine</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:var(--amber)"></span>charged (K R H D E)</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:var(--teal)"></span>hydrophobic (A V L I M F W)</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:var(--muted)"></span>polar and other (G P S T N Q Y)</span>
+            <span class="who-map-legend-item"><span class="aa-tick-sw"></span>Swiss-Prot overall composition (release 2026_03)</span>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Cysteine content by animal group</h3>
+          <div class="sub">average share of the mature region that is cysteine</div>
+          <div class="barlist" id="chartCys"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Isoelectric point (pI)</h3>
+          <div class="sub" id="subPi">calculated from the mature region</div>
+          <div class="histwrap" id="piChart" style="height:250px;"></div>
+          <div class="histaxis" id="piAxis"></div>
+        </div>
+
+        <h2 class="stats-sec" style="grid-column:1/-1;">AlphaFold confidence (pLDDT)</h2>
+
+        <div class="chart-card">
+          <h3>Mean pLDDT per toxin</h3>
+          <div class="sub" id="subPl">records with an AlphaFold model</div>
+          <div class="histwrap" id="plChart"></div>
+          <div class="histaxis" id="plAxis"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Confidence by region</h3>
+          <div class="sub" id="subPlReg">share of residues in each confidence band</div>
+          <div class="barlist" id="chartPlReg"></div>
+          <div class="who-map-legend" style="margin-top:12px;">
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#0053d6"></span>&gt; 90</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#65cbf3"></span>70&ndash;90</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#ffdb13"></span>50&ndash;70</span>
+            <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#ff7d45"></span>&lt; 50</span>
+          </div>
+        </div>
+        <div class="chart-card" style="grid-column:1/-1;">
+          <h3>Mean pLDDT by animal group</h3>
+          <div class="sub">average over records with an AlphaFold model (groups with at least 10 models)</div>
+          <div class="barlist pl-group-list" id="chartPlGroup"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>

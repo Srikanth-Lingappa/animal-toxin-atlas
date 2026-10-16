@@ -1,0 +1,30 @@
+/* css/07-taxonomy-tree.css: Taxonomy tab. Files are joined in order; later rules override earlier ones. */
+.tax-toolbar{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:6px;}
+.tax-legend{font-size:11px; color:var(--muted); margin-bottom:16px; min-height:16px;}
+.tax-tree{font-size:13px;}
+.tax-tree details{margin-left:14px;}
+.tax-tree > details{margin-left:0;}
+.tax-tree summary{
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px;
+  padding:5px 6px; border-radius:var(--radius-s); border-bottom:1px solid transparent;
+}
+.tax-tree summary::-webkit-details-marker{display:none;}
+.tax-tree summary:hover{background:var(--bg-elev);}
+.tax-tree summary::before{content:'\25b8'; color:var(--faint); font-size:10px; width:10px; flex:none; transition:transform .1s;}
+.tax-tree details[open] > summary::before{transform:rotate(90deg);}
+.tax-children{border-left:1px solid var(--line); margin-left:9px;}
+.tax-swatch{width:9px; height:9px; border-radius:50%; flex:none;}
+.tax-name{color:var(--ink-dim); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.tax-leaf .tax-name{font-style:italic; color:var(--ink);}
+.tax-rank{font-family:var(--font-ui); font-size:9.5px; color:var(--faint); text-transform:uppercase; letter-spacing:.02em; flex:none;}
+.tax-who{font-family:var(--font-ui); font-size:9px; color:var(--coral); border:1px solid color-mix(in srgb, var(--coral) 45%, transparent); border-radius:8px; padding:0 6px; flex:none;}
+.tax-n{font-family:var(--font-ui); font-size:10.5px; color:var(--muted); flex:none; min-width:64px; text-align:right;}
+.tax-leaf{display:flex; align-items:center; gap:8px; padding:5px 6px 5px 24px; cursor:pointer; border-radius:var(--radius-s);}
+.tax-leaf:hover{background:var(--bg-elev);}
+.tax-dim{display:none;}
+.tax-match{background:color-mix(in srgb, var(--amber) 14%, transparent);}
+.tax-flash{animation:whoFlash 1.4s ease;}
+.tax-self-link{font-size:10px; color:var(--teal); text-decoration:underline; flex:none; white-space:nowrap;}
+.tax-self-link:hover{color:var(--amber);}
+.tax-match-nav{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-ui); font-size:11px; color:var(--muted); flex:none;}
+.tax-match-nav .toolbtn{padding:4px 9px;}

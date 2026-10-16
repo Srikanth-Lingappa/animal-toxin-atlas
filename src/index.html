@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- GENERATED FILE. Do not edit by hand: edit the files in src/ and run  python scripts/build_html.py  (see docs/ARCHITECTURE.md). -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Animal Toxin Atlas — UniProt Toxin Compendium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+{{include css/00-tokens.css}}
+{{include css/01-layout-and-tabs.css}}
+{{include css/02-hero-and-category-strip.css}}
+{{include css/03-browse-filter-bar.css}}
+{{include css/04-results-list.css}}
+{{include css/05-sequence-map.css}}
+{{include css/06-embedding-map-and-citations.css}}
+{{include css/07-taxonomy-tree.css}}
+{{include css/08-who-clinical.css}}
+{{include css/09-interpro-organism-pagination.css}}
+{{include css/10-detail-panel.css}}
+{{include css/11-statistics.css}}
+{{include css/12-similarity-search.css}}
+{{include css/13-toxin-relationships.css}}
+{{include css/14-sequence-properties.css}}
+{{include css/15-compare.css}}
+{{include css/16-insights.css}}
+{{include css/17-insights-redesign.css}}
+</style>
+</head>
+<body>
+
+{{include html/header.html}}
+<main class="shell">
+
+{{include html/tab-browse.html}}
+{{include html/tab-search.html}}
+{{include html/tab-statistics.html}}
+{{include html/tab-toxin-relationships.html}}
+{{include html/tab-insights.html}}
+{{include html/tab-clinical-who.html}}
+{{include html/tab-organism.html}}
+{{include html/tab-disulfides.html}}
+{{include html/tab-taxonomy.html}}
+{{include html/tab-about.html}}
+</main>
+{{include html/panels-overlays-footer.html}}
+
+<script id="app-data" type="application/octet-stream">__ATLAS_DATA__</script>
+<script>
+(function(){
+"use strict";
+
+{{include js/00-theme.js}}
+{{include js/01-toast.js}}
+{{include js/02-load-data.js}}
+{{include js/03-state.js}}
+{{include js/03a-helpers.js}}
+{{include js/03b-who-snakes-data.js}}
+{{include js/04-init.js}}
+{{include js/05-category-strip.js}}
+{{include js/06-family-and-keyword-select.js}}
+{{include js/07-filter-sort-paginate.js}}
+{{include js/07b-filter-bar-chips.js}}
+{{include js/08-results-list.js}}
+{{include js/09-detail-panel.js}}
+{{include js/10-downloads.js}}
+{{include js/11-statistics-charts.js}}
+{{include js/11b-sequence-and-alphafold-stats.js}}
+{{include js/12-events-and-tabs.js}}
+{{include js/13-similarity-search.js}}
+{{include js/14-shared-targets.js}}
+{{include js/15-sequence-properties.js}}
+{{include js/15b-entry-panel-neighbours.js}}
+{{include js/15c-cleavage-note-sequence-map.js}}
+{{include js/16-compare.js}}
+{{include js/17-potency-and-lethality.js}}
+{{include js/18-structural-gaps.js}}
+{{include js/19-clinical-importance.js}}
+{{include js/20-organism-tab.js}}
+{{include js/21-disulfides-tab.js}}
+{{include js/22-taxonomy-tab.js}}
+{{include js/23-embedding-map-core.js}}
+{{include js/23b-embedding-agreement.js}}
+{{include js/23c-embedding-colouring.js}}
+{{include js/23d-embedding-drawing.js}}
+{{include js/23e-embedding-selection-and-search.js}}
+{{include js/23f-embedding-side-panel.js}}
+{{include js/23g-embedding-exports.js}}
+{{include js/23h-embedding-wiring.js}}
+{{include js/24-references.js}}
+init();
+})();
+
+</script>
+</body>
+</html>

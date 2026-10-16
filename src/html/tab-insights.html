@@ -1,0 +1,67 @@
+<!-- html/tab-insights.html: Insights tab: structural gaps and potency & lethality. -->
+  <!-- ===== INSIGHTS TAB ===== -->
+  <section id="tab-insights" style="display:none;">
+    <div class="hero" style="padding-top:22px;">
+      <p class="hero-lede">Two research-oriented cuts of the data: which large well-populated protein families still have no solved 3D structure, and how confidently AlphaFold models them; and which toxins are reported as most potent. (For WHO-priority medically important snake species, see the dedicated Clinical Importance tab.)</p>
+    </div>
+
+    <div class="viewtabs subtabs" style="border-bottom:1px solid var(--line); margin-bottom:22px;">
+      <button class="active" data-subtab="gaps">Structural Gaps</button>
+      <button data-subtab="potency">Potency &amp; Lethality</button>
+    </div>
+
+    <div id="insight-potency" style="display:none;">
+      <div class="kpi-row" id="potKpis"></div>
+      <details class="insight-note"><summary>How to read this &mdash; caveats</summary><div>
+        Values are parsed from free text that UniProt curators transcribed from the literature, so treat this as a starting point for literature review, not a validated cross-study ranking.
+        <br><br><b>In vivo</b> = LD50/PD50 from the &ldquo;Toxic dose&rdquo; field. Mass doses are converted to mg/kg-equivalent. Molar doses (such as nmol/g) are converted with the molecular weight of the stored mature chain and flagged &ldquo;&asymp;&rdquo;, but are skipped for heterodimers and other multi-chain toxins, where one stored chain would give the wrong weight. Bounds (&ldquo;&gt;20 mg/kg&rdquo;, &ldquo;below 5 &micro;g/kg&rdquo;) are not treated as values. Doses in other units (&micro;g/mL on cells, mouse units, per-insect amounts) are not parsed, so roughly 1 in 9 records that mention an LD50 are not listed here.
+        <br><br><b>In vitro</b> = IC50/EC50/Kd/Ki found in the function text, converted to nM. A list such as &ldquo;IC50 of 369, 386 and 287 nM&rdquo; is split into separate values, and a range keeps its lower end. Concentrations given as mass per volume (&micro;g/mL) are not converted.
+        <br><br>A record with several measurements is ranked by its <b>lowest</b> value &mdash; its best route or target, not an average. Routes, species, assay conditions and targets are <b>not standardized</b> across studies, and the target type tag (channel/receptor, enzyme, cell) is a keyword-based guess.
+        <br><br><b>Checked:</b> a 50-record spot check against the UniProt text (25 in vivo, 25 in vitro) found the parsed numbers correct in 48; the two errors (a &ldquo;below&rdquo; bound read as a value, and a heterodimer dose converted from one chain) are fixed, along with several wrong target-type tags. It is a sample, not a guarantee.
+      </div></details>
+      <div class="ins-toolbar">
+        <div class="seg" id="potMetric">
+          <button class="active" data-m="vivo">Lethality &middot; in vivo</button>
+          <button data-m="vitro">Potency &middot; in vitro</button>
+        </div>
+        <select class="sortsel" id="potencyCatFilter"><option value="">All categories</option></select>
+        <select class="sortsel" id="potSpecies" title="Animal the dose was tested in">
+          <option value="">Any test species</option><option value="Mammal">Mammal (mouse, rat&hellip;)</option><option value="Insect">Insect</option><option value="Crustacean">Crustacean</option><option value="Fish">Fish</option><option value="Other">Other / not stated</option>
+        </select>
+        <select class="sortsel" id="potRoute" title="How the dose was administered">
+          <option value="">Any route</option><option value="i.v.">Intravenous (i.v.)</option><option value="i.p.">Intraperitoneal (i.p.)</option><option value="s.c.">Subcutaneous (s.c.)</option><option value="i.c.v.">Intracerebroventricular (i.c.v.)</option><option value="other">Other / not stated</option>
+        </select>
+        <select class="sortsel" id="potCtx" title="What kind of assay the value comes from" style="display:none;">
+          <option value="">Any assay</option><option value="Channel / receptor">Channel / receptor</option><option value="Enzyme">Enzyme</option><option value="Cell / microbe / organism">Cell / microbe / organism</option><option value="Other">Other</option>
+        </select>
+        <span class="insight-sub" id="potencyCount" style="margin:0;"></span>
+      </div>
+      <div class="plot-card"><h4 id="potPlotTitle"></h4><div id="potPlot"></div></div>
+      <div class="card-grid" id="potencyTable"></div>
+      <button class="toolbtn more-btn" id="potMore" style="display:none;">Show more</button>
+    </div>
+
+    <div id="insight-gaps">
+      <div class="kpi-row" id="gapKpis"></div>
+      <details class="insight-note"><summary>How to read this</summary><div>
+        Protein families with at least 12 characterized members. <b>Position</b> shows the share of members with an experimentally solved structure (PDB): families near the bottom, especially large ones at 0%, have no solved structure. <b>Colour and the number on each card</b> show how confident AlphaFold is about the members that are <i>not</i> solved: the mean pLDDT of their predicted models (&gt;90 very high, 70&ndash;90 confident, 50&ndash;70 low, &lt;50 very low). A family that is both unsolved and confidently modelled is where a prediction can stand in for an experiment today; an unsolved family with low confidence needs the experiment. The mean is shown only when at least 5 unsolved members have a model. pLDDT is computed over the whole translated precursor, including signal and propeptide regions (for 14 records AlphaFold modelled only part of the sequence, and only that part counts).
+      </div></details>
+      <div class="plot-card"><h4>Each dot is one protein family. Height is the share of its members that are solved; colour is AlphaFold's mean confidence for the members that are not. Click a dot for the full family.</h4><div id="gapPlot"></div>
+        <div class="who-map-legend" style="margin:6px 0 4px;">
+          <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#0053d6"></span>pLDDT &gt; 90</span>
+          <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#65cbf3"></span>70&ndash;90</span>
+          <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#ffdb13"></span>50&ndash;70</span>
+          <span class="who-map-legend-item"><span class="who-map-swatch" style="background:#ff7d45"></span>&lt; 50</span>
+          <span class="who-map-legend-item"><span class="who-map-swatch" style="background:var(--faint)"></span>too few models for a mean</span>
+        </div></div>
+      <div class="ins-toolbar">
+        <div class="seg" id="gapFilter"><button class="active" data-f="all">All families</button><button data-f="unsolved">No solved structure</button><button data-f="cand">&hellip;and confidently modelled</button></div>
+        <input type="search" class="sortsel" id="gapSearch" placeholder="Find a family&hellip;" style="min-width:160px;">
+        <select class="sortsel" id="gapSortSel"><option value="pct">Least solved first</option><option value="n">Largest first</option><option value="hi">Highest mean pLDDT</option><option value="lo">Lowest mean pLDDT</option></select>
+        <span class="insight-sub" id="gapCount" style="margin:0;"></span>
+      </div>
+      <div class="card-grid" id="gapTable"></div>
+      <button class="toolbtn more-btn" id="gapMore" style="display:none;">Show more</button>
+    </div>
+
+  </section>

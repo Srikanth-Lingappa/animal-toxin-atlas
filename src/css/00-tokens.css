@@ -1,0 +1,116 @@
+/* css/00-tokens.css: Design tokens: colours, fonts, spacing, the light/dark themes and the animal-group palette. Files are joined in order; later rules override earlier ones. */
+/* ============ TOKENS ============ */
+:root{
+  --bg: #0c1626;
+  --bg-elev: #111f33;
+  --bg-elev-2: #17283f;
+  --paper: #e8eff7;
+  --ink: #e8eff7;
+  --ink-dim: #bccbdc;
+  --muted: #8da2b8;
+  --faint: #5f768d;
+  --line: rgba(190,210,235,0.14);
+  --line-strong: rgba(190,210,235,0.26);
+  --amber: #5b9bd8;
+  --amber-ink: #0c1626;
+  --coral: #e0735a;
+  --teal: #3fb59c;
+  --shadow: 0 12px 32px rgba(0,0,0,0.45);
+
+  --cat-snake: #c0573a;
+  --cat-spider: #8a71a8;
+  --cat-scorpion: #b58a34;
+  --cat-cone: #3e8c86;
+  --cat-hymenoptera: #c9a227;
+  --cat-cnidarian: #4e9dbf;
+  --cat-centipede: #7a8a45;
+  --cat-fish: #4674ad;
+  --cat-tick: #96703f;
+  --cat-frog: #5c9e5c;
+  --cat-lizard: #8a9c4e;
+  --cat-snail: #9a8a6a;
+  --cat-mammal: #a87c9c;
+  --cat-caterpillar: #7e9c50;
+  --cat-bug: #a06a4e;
+  --cat-parasitoid: #877a5a;
+  --cat-other: #7a7566;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: var(--font-ui);
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body: var(--font-ui);
+}
+
+:root:not([data-theme="dark"]){
+  @media (prefers-color-scheme: light){
+    --bg: #eff5fb;
+    --bg-elev: #ffffff;
+    --bg-elev-2: #f6f9fd;
+    --paper: #0f2035;
+    --ink: #0f2035;
+    --ink-dim: #2a4a65;
+    --muted: #5b7690;
+    --faint: #8aa0b5;
+    --line: rgba(15,32,53,0.11);
+    --line-strong: rgba(15,32,53,0.22);
+    --amber: #2e6bad;
+    --amber-ink: #ffffff;
+    --coral: #c4503a;
+    --teal: #1d9e75;
+    --shadow: 0 12px 28px rgba(15,32,53,0.12);
+  }
+}
+:root[data-theme="dark"]{
+  --bg: #0c1626; --bg-elev:#111f33; --bg-elev-2:#17283f; --paper:#e8eff7; --ink:#e8eff7;
+  --ink-dim:#bccbdc; --muted:#8da2b8; --faint:#5f768d; --line:rgba(190,210,235,0.14);
+  --line-strong:rgba(190,210,235,0.26); --amber:#5b9bd8; --amber-ink:#0c1626; --coral:#e0735a; --teal:#3fb59c;
+  --shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+:root[data-theme="light"]{
+  --bg: #eff5fb; --bg-elev:#ffffff; --bg-elev-2:#f6f9fd; --paper:#0f2035; --ink:#0f2035;
+  --ink-dim:#2a4a65; --muted:#5b7690; --faint:#8aa0b5; --line:rgba(15,32,53,0.11);
+  --line-strong:rgba(15,32,53,0.22); --amber:#2e6bad; --amber-ink:#ffffff; --coral:#c4503a; --teal:#1d9e75;
+  --shadow: 0 12px 28px rgba(15,32,53,0.12);
+}
+
+
+/* colour-blind-safe categorical palette (optimised so no two groups converge under protan / deutan / tritan simulation) */
+:root[data-cvd="1"]{ --cat-snake:#94ddce; --cat-spider:#f75e14; --cat-scorpion:#2795cb; --cat-cone:#f48775; --cat-hymenoptera:#18eda8; --cat-cnidarian:#d7ca39; --cat-centipede:#f887f8; --cat-fish:#74e7f9; --cat-tick:#f73ac8; --cat-frog:#9977fd; --cat-lizard:#b88a56; --cat-snail:#dba6da; --cat-mammal:#d7787e; --cat-caterpillar:#41a41a; --cat-bug:#a1cd64; --cat-parasitoid:#a9ea24; --cat-other:#8a97a6; }
+:root[data-cvd="1"][data-theme="light"]{ --cat-snake:#9e13a4; --cat-spider:#c71f1a; --cat-scorpion:#b31e67; --cat-cone:#7613f5; --cat-hymenoptera:#519be8; --cat-cnidarian:#da7305; --cat-centipede:#a2914f; --cat-fish:#6a56f7; --cat-tick:#9873f9; --cat-frog:#d08a83; --cat-lizard:#914a4a; --cat-snail:#8230c8; --cat-mammal:#53a923; --cat-caterpillar:#52620b; --cat-bug:#fb2992; --cat-parasitoid:#a677b8; --cat-other:#8a97a6; }
+@media (prefers-color-scheme: light){ :root[data-cvd="1"]:not([data-theme="dark"]){ --cat-snake:#9e13a4; --cat-spider:#c71f1a; --cat-scorpion:#b31e67; --cat-cone:#7613f5; --cat-hymenoptera:#519be8; --cat-cnidarian:#da7305; --cat-centipede:#a2914f; --cat-fish:#6a56f7; --cat-tick:#9873f9; --cat-frog:#d08a83; --cat-lizard:#914a4a; --cat-snail:#8230c8; --cat-mammal:#53a923; --cat-caterpillar:#52620b; --cat-bug:#fb2992; --cat-parasitoid:#a677b8; --cat-other:#8a97a6; } }
+.toolbtn.on{background:var(--amber); border-color:var(--amber); color:var(--amber-ink);}
+.theme-btn.on{background:var(--amber); border-color:var(--amber); color:var(--amber-ink);}
+.emb-lg{background:none; border:none; padding:2px 4px; margin:0; font:inherit; color:inherit; cursor:pointer; border-radius:4px;}
+.emb-lg:hover{background:var(--bg-elev-2); color:var(--ink);}
+.lg-shape{flex:none; display:inline-block; overflow:visible;}
+.emb-point.shp{transform:translate(var(--tx),var(--ty)) scale(var(--emb-r,3));}
+#embSvg .emb-point.match.shp{transform:translate(var(--tx),var(--ty)) scale(calc(var(--emb-r,3)*1.6)); stroke:var(--ink); stroke-width:1.4px; vector-effect:non-scaling-stroke;}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:14px;
+  line-height:1.5;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--amber); color:var(--amber-ink);}
+a{color:inherit;}
+button{font-family:inherit;}
+b, strong, h1, h2, h3, h4{font-weight:600;}
+h1, h2, h3, h4{letter-spacing:-0.01em;}
+body{-webkit-font-smoothing:antialiased;}
+input,select{font-family:inherit;}
+
+/* scrollbars, subtle */
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:6px;}

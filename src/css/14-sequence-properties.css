@@ -1,0 +1,8 @@
+/* css/14-sequence-properties.css: Sequence properties table. Files are joined in order; later rules override earlier ones. */
+/* ============ PHYSICOCHEMICAL PROPERTIES ============ */
+.props-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px 18px;}
+@media (max-width:480px){ .props-grid{grid-template-columns:1fr;} }
+.prow{display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding:6px 0; border-bottom:1px solid var(--line); font-size:12px;}
+.prow .pk{color:var(--muted);}
+.prow .pv{font-family:var(--font-ui); color:var(--ink); text-align:right;}
+.props-note{font-size:10.5px; color:var(--faint); margin-top:10px; line-height:1.5;}

@@ -1,0 +1,17 @@
+/* css/08-who-clinical.css: WHO badges and the Clinical Importance tab. Files are joined in order; later rules override earlier ones. */
+.who-map-wrap{margin:18px 0 20px;}
+#whoMapSvg{width:100%; height:auto; display:block; background:var(--bg-elev); border-radius:var(--radius-s); border:1px solid var(--line);}
+#whoMapSvg path{fill:color-mix(in srgb, var(--ink-dim) 12%, transparent); stroke:var(--line); stroke-width:0.7;}
+.who-marker{cursor:pointer;}
+.who-marker circle{stroke:var(--bg); stroke-width:1.2; transition:opacity .12s;}
+.who-marker:hover circle{opacity:0.78;}
+.who-marker.hollow circle{fill:transparent; stroke:var(--faint); stroke-width:1.4;}
+.who-map-legend{display:flex; flex-wrap:wrap; gap:14px; margin-top:10px; font-size:11px; color:var(--muted);}
+.who-map-legend-item{display:inline-flex; align-items:center; gap:6px;}
+.who-map-swatch{width:10px; height:10px; border-radius:50%; flex:none; display:inline-block;}
+.who-map-swatch.hollow{background:transparent; border:1.4px solid var(--faint);}
+.who-map-caption{font-size:11px; color:var(--faint); margin-top:8px; line-height:1.5;}
+.who-map-caption a{color:var(--faint); text-decoration:underline;}
+.who-flash{animation:whoFlash 1.4s ease;}
+@keyframes whoFlash{0%{background:color-mix(in srgb, var(--amber) 22%, transparent);} 100%{background:transparent;}}
+

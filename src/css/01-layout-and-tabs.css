@@ -1,0 +1,51 @@
+/* css/01-layout-and-tabs.css: Page shell, header and the view tabs. Files are joined in order; later rules override earlier ones. */
+/* ============ LAYOUT SHELL ============ */
+.shell{max-width:1320px; margin:0 auto; padding:0 24px;}
+
+header.top{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);
+}
+.top-inner{
+  display:flex; align-items:baseline; justify-content:space-between;
+  padding:16px 0 14px;
+  gap:16px; flex-wrap:wrap;
+}
+.wordmark{display:flex; align-items:baseline; gap:12px;}
+.wordmark h1{
+  font-family:var(--font-display); font-weight:600; font-size:21px;
+  letter-spacing:-0.01em; margin:0; color:var(--ink);
+}
+.wordmark .tag{
+  font-family:var(--font-ui); font-size:11px; color:var(--muted);
+  border-left:1px solid var(--line-strong); padding-left:12px;
+}
+.top-actions{display:flex; align-items:center; gap:10px;}
+.count-pill{
+  font-family:var(--font-ui); font-size:12px; color:var(--muted);
+  padding:6px 10px; border:1px solid var(--line); border-radius:20px;
+}
+.theme-btn{
+  background:none; border:1px solid var(--line); color:var(--ink-dim);
+  border-radius:20px; padding:6px 12px; font-size:12px; cursor:pointer;
+  font-family:var(--font-ui);
+}
+.theme-btn:hover{border-color:var(--line-strong); color:var(--ink);}
+
+/* view tabs */
+.viewtabs{display:flex; gap:5px; padding:0 0 14px; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none;}
+.viewtabs::-webkit-scrollbar{display:none;}
+.viewtabs button{white-space:nowrap;
+  background:var(--bg-elev); border:1px solid var(--line); color:var(--ink-dim); cursor:pointer;
+  font-family:var(--font-ui); font-size:13px; font-weight:500; padding:8px 14px; border-radius:999px;
+  letter-spacing:0; transition:background .12s, border-color .12s, color .12s;
+}
+.viewtabs button:hover:not(.active){color:var(--ink); border-color:var(--amber); background:var(--bg-elev-2);}
+.viewtabs button.active{background:var(--amber); border-color:var(--amber); color:var(--amber-ink);}
+.viewtabs.subtabs{padding-top:2px; gap:8px;}
+.viewtabs.subtabs button{font-size:12.5px; padding:7px 16px; border-radius:var(--radius-s);}
+.viewtabs.subtabs button:hover:not(.active){border-color:var(--teal);}
+.viewtabs.subtabs button.active{background:var(--teal); border-color:var(--teal); color:#fff;}

@@ -1,0 +1,42 @@
+/* css/12-similarity-search.css: Similarity Search tab. Files are joined in order; later rules override earlier ones. */
+/* ============ SIMILARITY SEARCH TAB ============ */
+.seq-input-card{border:1px solid var(--line); border-radius:var(--radius-m); background:var(--bg-elev); padding:18px 20px; margin-bottom:22px;}
+.seq-textarea{
+  width:100%; min-height:110px; background:var(--bg-elev-2); border:1px solid var(--line-strong); color:var(--ink);
+  border-radius:var(--radius-s); padding:11px 13px; font-family:var(--font-mono); font-size:12.5px; line-height:1.6;
+  resize:vertical; outline:none;
+}
+.seq-textarea:focus{border-color:var(--amber);}
+.seq-input-row{display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap;}
+.seq-meta{font-family:var(--font-mono); font-size:11px; color:var(--muted);}
+.searchbtn{
+  background:var(--amber); color:var(--amber-ink); border:none; border-radius:var(--radius-s);
+  padding:9px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font-body);
+}
+.searchbtn:hover{opacity:0.9;}
+.searchbtn:disabled{opacity:0.45; cursor:not-allowed;}
+.seq-example{background:none; border:1px solid var(--line); color:var(--muted); border-radius:14px; padding:5px 11px; font-size:11px; cursor:pointer; font-family:var(--font-mono);}
+.seq-example:hover{border-color:var(--line-strong); color:var(--ink);}
+.seq-progress{margin-top:12px; display:none;}
+.seq-progress.show{display:block;}
+.seq-progress .ptrack{height:6px; background:var(--bg-elev-2); border-radius:3px; overflow:hidden; margin-bottom:6px;}
+.seq-progress .pfill{height:100%; background:var(--amber); width:0%; transition:width .1s;}
+.seq-progress .ptext{font-family:var(--font-mono); font-size:11px; color:var(--muted);}
+.seq-error{color:var(--coral); font-size:12px; margin-top:8px; font-family:var(--font-mono);}
+
+.hit-row{border:1px solid var(--line); border-radius:var(--radius-m); margin-bottom:8px; overflow:hidden; background:var(--bg-elev);}
+.hit-head{display:grid; grid-template-columns:40px 1fr auto auto auto; gap:14px; align-items:center; padding:12px 16px; cursor:pointer;}
+.hit-head:hover{background:var(--bg-elev-2);}
+.hit-rank{font-family:var(--font-ui); color:var(--faint); font-size:12px;}
+.hit-name{font-size:13.5px; color:var(--ink); font-weight:500;}
+.hit-org{font-style:italic; color:var(--muted); font-size:11.5px; margin-top:2px;}
+.hit-score, .hit-ident, .hit-cat{font-family:var(--font-ui); font-size:11.5px; color:var(--ink-dim); text-align:right; white-space:nowrap;}
+.hit-score b, .hit-ident b{color:var(--amber); font-weight:600;}
+.hit-align{display:none; padding:14px 16px 16px; border-top:1px solid var(--line); background:var(--bg-elev-2);}
+.hit-align.open{display:block;}
+.aln-block{font-family:var(--font-mono); font-size:11.5px; line-height:1.6; letter-spacing:0; font-variant-ligatures:none; overflow-x:auto; white-space:pre; color:var(--ink-dim);}
+.aln-block .q, .aln-block .s{color:var(--ink-dim);}
+.aln-block .m{color:var(--faint);}
+.aln-actions{margin-top:10px;}
+.aln-actions a{font-family:var(--font-ui); font-size:11px; color:var(--amber); text-decoration:none;}
+.aln-actions a:hover{text-decoration:underline;}

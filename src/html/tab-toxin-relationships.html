@@ -1,0 +1,84 @@
+<!-- html/tab-toxin-relationships.html: Toxin Relationships tab: embedding map and shared targets. -->
+  <!-- ===== CONVERGENCE TAB ===== -->
+  <section id="tab-convergence" style="display:none;">
+    <div class="hero" style="padding-top:22px;">
+      <p class="hero-lede conv-lead">How toxins relate to each other beyond their taxonomy: which toxins look alike to a protein language model, and which molecular targets are hit independently by unrelated lineages.</p>
+    </div>
+
+    <div class="viewtabs subtabs" style="border-bottom:1px solid var(--line); margin-bottom:22px;">
+      <button class="active" data-rsub="embed">Embedding Map</button>
+      <button data-rsub="targets">Shared Targets</button>
+    </div>
+
+    <div id="rel-embed">
+      <div class="insight-sub" style="margin-bottom:14px;">A protein language model's learned embedding for every record in this dataset, reduced to 2D (UMAP). Where UniProt annotates a mature chain or peptide, that region was embedded (signal peptides and propeptides removed; multi-chain toxins as their chains joined); records with no such annotation were embedded in full. Each record&rsquo;s detail panel states what was embedded. The embeddings were computed outside this page and supplied as coordinates. Fragment records (incomplete sequences) were embedded as deposited, so their positions may be less reliable. No human-assigned labels are involved: proximity reflects what the model considers similar, so toxins from unrelated lineages that land together are candidates for shared function or fold.</div>
+
+      <div class="ins-toolbar">
+        <div class="seg" id="embModel">
+          <button class="active" data-m="t5">ProtT5 (sequence)</button>
+          <button data-m="prost">ProstT5 (structure-aware)</button>
+        </div>
+        <div class="seg" id="embColorMode">
+          <button class="active" data-m="cat">Animal group</button>
+          <button data-m="cls">Toxin class</button>
+          <button data-m="pdb">Structural coverage</button>
+          <button data-m="ds">Disulfide pattern</button>
+          <button data-m="mech">Mechanism</button>
+          <button data-m="agree" title="Where ProtT5 and ProstT5 disagree about a toxin's neighbours">Model agreement</button>
+        </div>
+      </div>
+      <div class="ins-toolbar emb-tools">
+        <div class="seg" id="embTool">
+          <button class="active" data-t="pan" title="Drag to pan the map">Pan</button>
+          <button data-t="select" title="Drag a box to select points (or hold Shift in Pan mode)">Select</button>
+        </div>
+        <input type="search" id="embSearch" class="emb-search" placeholder="Find a toxin, species, family…" autocomplete="off">
+        <span class="emb-count" id="embSearchCount"></span>
+        <button class="toolbtn" id="embResetView">Reset view</button>
+        <button class="toolbtn" id="embShapes" aria-pressed="false" title="Draw each group with its own marker shape as well as its colour (helps with colour blindness)">Shapes</button>
+        <div class="seg emb-topdis" id="embTopDis" role="group" aria-label="Select the toxins whose neighbours differ most between the ProtT5 and ProstT5 maps">
+          <span class="seg-lbl">Top disagreements</span>
+          <button type="button" data-n="100" aria-pressed="false" title="Select the 100 toxins whose 15 nearest neighbours overlap least between the ProtT5 and ProstT5 maps. Click again to clear.">100</button>
+          <button type="button" data-n="250" aria-pressed="false" title="Select the 250 most divergent toxins. Click again to clear.">250</button>
+          <button type="button" data-n="zero" aria-pressed="false" title="Select every toxin that shares none of its 15 nearest neighbours between the two maps. Click again to clear.">All with none shared</button>
+        </div>
+        <span class="emb-exports">
+          <button class="toolbtn" id="embExpCsv" title="Export the selection (or everything) as CSV">CSV</button>
+          <button class="toolbtn" id="embExpFasta" title="Export sequences of the selection (or everything)">FASTA</button>
+          <button class="toolbtn" id="embExpSvg" title="Download the current view as SVG">SVG</button>
+          <button class="toolbtn" id="embExpPng" title="Download the current view as PNG">PNG</button>
+        </span>
+      </div>
+      <div class="tax-legend" id="embLegend"></div>
+      <div class="emb-layout">
+        <div class="emb-plot-wrap">
+          <svg id="embSvg" viewBox="0 0 700 560" role="img"></svg>
+          <div class="emb-box" id="embBox"></div>
+          <div class="emb-tip" id="embTip"></div>
+        </div>
+        <aside class="emb-side">
+          <div id="embSideHead"></div>
+          <div id="embSideComp"></div>
+          <div class="emb-desc" id="embSideDesc" style="display:none;"></div>
+          <div class="emb-list" id="embSideList"></div>
+        </aside>
+      </div>
+      <div class="insight-sub" style="margin-top:8px;">Scroll to zoom, drag to pan. Hover a point to see what it is; click it to open that record. Choose <b>Select</b> (or hold Shift) and drag a box to list those toxins on the right &mdash; Shift+drag adds to the selection. Search highlights matches on the map; Enter zooms to them. CSV/FASTA export the selection (or everything if nothing is selected); SVG/PNG export the current view with its legend. <b>Model agreement</b> colors each toxin by how many of its 15 nearest neighbours are the same in both maps; low overlap means ProtT5 (sequence) and ProstT5 (structure-aware) disagree about what it resembles &mdash; candidates for fold-versus-sequence questions. Overlap is measured on the 2D UMAP coordinates, not the original embeddings, so some disagreement is projection noise. Tip: color by Disulfide pattern and compare ProtT5 vs ProstT5 &mdash; if same-colored points cluster in one but not the other, that's a real signal about fold (ProstT5) versus sequence (ProtT5).</div>
+    </div>
+
+    <div id="rel-targets" style="display:none;">
+      <div class="insight-sub" style="margin-bottom:14px;">Built from UniProt's own curated keywords rather than the embeddings: many venom targets are hit by toxins with completely unrelated protein folds &mdash; evolved independently, not inherited from a common ancestor. Click a target below to see which taxonomic groups and toxin classes converge on it.</div>
+
+    <div class="chart-card" style="margin-bottom:22px;">
+      <h3>Shared-target map</h3>
+      <div class="sub">bubble size = records · position = how widely a target is hit · click a bubble or a row below</div>
+      <div id="convScatter"></div>
+    </div>
+
+    <div class="conv-head-row">
+      <span>Molecular target</span><span>Records</span><span>Lineages</span><span>Toxin classes</span>
+    </div>
+    <div class="conv-table" id="convTable"></div>
+
+    </div>
+  </section>

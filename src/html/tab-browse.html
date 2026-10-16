@@ -1,0 +1,83 @@
+<!-- html/tab-browse.html: Browse tab: hero, filter bar and results list. -->
+  <!-- ===== BROWSE TAB ===== -->
+  <section id="tab-browse">
+    <div class="hero">
+      <p class="hero-lede">A field index of characterized venom and toxin proteins, drawn from reviewed UniProtKB/Swiss-Prot records across the animal kingdom.</p>
+      <div class="catstrip" id="catStrip"></div>
+    </div>
+
+    <div class="statline" id="statLine"></div>
+
+    <div class="browse">
+      <div class="fbar" id="filterPanel">
+        <div class="fbar-main">
+          <div class="search-wrap fbar-search">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Search protein, gene, organism, function…">
+          </div>
+          <div class="range-row fbar-len" title="Sequence length in amino acids">
+            <span class="fbar-lbl">Length</span>
+            <input type="number" id="lenMin" placeholder="min" min="0">
+            <span style="color:var(--faint)">&ndash;</span>
+            <input type="number" id="lenMax" placeholder="max" min="0">
+            <span class="fbar-lbl">aa</span>
+          </div>
+          <button class="fbar-toggle" id="fbarToggle" aria-expanded="false" aria-controls="fbarMore">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="var(--bg-elev)"/><circle cx="15" cy="12" r="2" fill="var(--bg-elev)"/><circle cx="8" cy="18" r="2" fill="var(--bg-elev)"/></svg>
+            <span>More filters</span><b class="fbadge" id="fbarBadge" hidden>0</b><i class="fcaret">&#9662;</i>
+          </button>
+          <button class="fbar-clear" id="clearFilters" hidden>Clear all</button>
+        </div>
+
+        <div class="fbar-quick">
+          <span class="fbar-lbl">Only show</span>
+          <label class="fchip"><input type="checkbox" id="has3d"><span>3D structure (PDB)</span></label>
+          <label class="fchip"><input type="checkbox" id="hasEc"><span>Enzyme (EC number)</span></label>
+          <label class="fchip"><input type="checkbox" id="hasWho"><span>WHO medically important species</span></label>
+          <label class="fchip"><input type="checkbox" id="excludeFrag"><span>Exclude fragments</span></label>
+        </div>
+
+        <div class="fbar-active" id="activeChips"></div>
+
+        <div class="fbar-more" id="fbarMore" hidden>
+          <div class="fbar-grid">
+            <label class="fsel"><span>Evidence level</span>
+              <select class="family-select" id="peSelect"><option value="">Any evidence level</option></select></label>
+            <label class="fsel"><span>Toxin class <em>broad</em></span>
+              <select class="family-select" id="classSelect"><option value="">All classes</option></select></label>
+            <label class="fsel"><span>Protein family <em>specific</em></span>
+              <select class="family-select" id="familySelect"><option value="">All families</option></select></label>
+            <label class="fsel"><span>InterPro entry <em>domain / family signature</em></span>
+              <select class="family-select" id="iprSelect"><option value="">All InterPro entries</option></select></label>
+            <label class="fsel"><span>Mechanism of action <em>GO molecular function</em></span>
+              <select class="family-select" id="mfSelect"><option value="">All mechanisms</option></select></label>
+          </div>
+          <div class="fsel kwbox"><span>Keywords <em>match all selected</em></span>
+            <input type="text" class="kwfilter" id="kwFilterInput" placeholder="filter keyword list…">
+            <div class="kwlist" id="kwList"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resultsCol">
+        <div class="results-head">
+          <div class="results-count"><b id="resCount">0</b> <span id="resCountLabel">records</span></div>
+          <div class="results-tools">
+            <select class="sortsel" id="sortSelect">
+              <option value="org">Sort: Organism A–Z</option>
+              <option value="name">Sort: Protein name A–Z</option>
+              <option value="len_desc">Sort: Length (longest)</option>
+              <option value="len_asc">Sort: Length (shortest)</option>
+              <option value="cat">Sort: Category</option>
+            </select>
+            <button class="toolbtn" id="exportCsv">⇩ CSV</button>
+            <button class="toolbtn" id="exportFasta">⇩ FASTA</button>
+          </div>
+        </div>
+
+        <div class="rowlist" id="rowList"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </section>

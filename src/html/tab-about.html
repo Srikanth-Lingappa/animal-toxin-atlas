@@ -1,0 +1,71 @@
+<!-- html/tab-about.html: About tab: data, methods summary, how to cite, references. -->
+  <section id="tab-about" style="display:none;">
+    <div class="hero" style="padding-top:22px; max-width:700px;">
+      <p class="hero-lede" style="font-size:19px;">About this atlas</p>
+
+      <div class="info-card">
+        <div class="ic-title">The data</div>
+        <div class="ic-sub">UniProtKB/Swiss-Prot Tox-Prot</div>
+        <div class="ic-body">
+          <p style="margin:0 0 10px;">This atlas covers <b id="aboutTotal">8,274</b> reviewed UniProtKB/Swiss-Prot records of animal venom proteins, curated by <b>Tox-Prot</b>, UniProt's programme for animal toxins. 86% carry UniProt's &ldquo;Toxin&rdquo; keyword; the rest are mostly proteins expressed in the venom gland, such as hyaluronidases and phospholipases. Tox-Prot includes proteins from venomous animals such as snakes, spiders, scorpions, cone snails and centipedes, and from poisonous animals without a venom apparatus, such as some toads and ticks. Each record has the same curation standard as the rest of Swiss-Prot.</p>
+          <p style="margin:0;">The data are a UniProt export from 26 Sep 2026 (Metazoa, taxonomy ID 33208), including InterPro cross-references. Every record links back to its UniProt entry, which remains the authoritative source.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">What the atlas adds</div>
+        <div class="ic-sub">views and values built on top of the records</div>
+        <div class="ic-body">
+          <p style="margin:0 0 10px;">Records can be browsed, filtered, compared and exported, and each tab gives a different view: organisms and their NCBI taxonomy, disulfide connectivity patterns, WHO-listed snakes, embedding maps and shared targets, statistics, structural gaps and potency, and a local Smith-Waterman similarity search.</p>
+          <p style="margin:0;">Some values are worked out here and are not UniProt fields: the animal group (from the NCBI lineage), the toxin class (a grouping of UniProt protein families defined for this atlas; records with no family annotation have no class), disulfide connectivity patterns, potency and lethality (parsed from UniProt free text), computed sequence properties (pI, charge, GRAVY; calculated from the stored sequence, without cleavage or modifications), and the AlphaFold and embedding summaries below.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">AlphaFold confidence</div>
+        <div class="ic-sub">AlphaFold DB, model version 6, retrieved 12 Oct 2026</div>
+        <div class="ic-body">
+          <p style="margin:0;">Per-residue pLDDT comes from AlphaFold DB and is shown as a strip on each record's sequence map, in Statistics and in Structural Gaps. The bands follow AlphaFold's own: above 90 very high, 70&ndash;90 confident, 50&ndash;70 low, below 50 very low. Means cover the sequence AlphaFold modelled, usually the whole precursor, so signal and propeptide regions are included. Records with a solved structure still show the strip, because solved structures usually cover only the mature toxin.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">Embedding maps</div>
+        <div class="ic-sub">ProtT5 and ProstT5, projected with UMAP</div>
+        <div class="ic-body">
+          <p style="margin:0;">The two maps in Toxin Relationships use protein language model embeddings of each record's mature region (ProtT5 for sequence, ProstT5 as a structure-aware model), reduced to two dimensions with UMAP (n_neighbors 15, min_dist 0.1, random_state 42). They were computed outside this page. Cluster shapes and distances are not quantitative, and the nearest-neighbour and model-agreement views are measured on these 2D coordinates, so they are approximate.</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="ic-title">WHO medically important snakes</div>
+        <div class="ic-sub">a second data source</div>
+        <div class="ic-body">
+          <p style="margin:0;">Records whose organism matches a species in the WHO snake antivenom guidelines (Annex 5, TRS No. 1004, Tables A5.3&ndash;A5.6) carry a WHO badge, filterable in Browse and broken down by subregion in Clinical Importance. Species are matched by binomial name only. The list is WHO's, not a Tox-Prot annotation.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="citeCard">
+        <div class="ic-title">How to cite</div>
+        <div class="ic-sub">the atlas, its data, and the methods behind it</div>
+        <div class="ic-body">
+          <p style="margin:0 0 8px;">If this atlas helps your work, please cite the underlying resources &mdash; UniProt and the Tox-Prot programme first and foremost &mdash; and mention the atlas itself:</p>
+          <div class="cite-box" id="citeAtlas">Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. Data: UniProt Tox-Prot export, retrieved September 2026.</div>
+          <div class="cite-actions">
+            <button class="toolbtn" id="citeCopyAtlas">Copy</button>
+            <button class="toolbtn" id="citeCopyAll">Copy all references</button>
+            <button class="toolbtn" id="citeBib">Download .bib</button>
+          </div>
+          <p class="props-note" style="margin:10px 0 0;">UniProt data are released under CC BY 4.0.</p>
+        </div>
+      </div>
+
+      <div class="info-card" id="refCard">
+        <div class="ic-title">References</div>
+        <div class="ic-sub">grouped by what each one supports</div>
+        <div class="ic-body" id="refList"></div>
+      </div>
+
+      <div class="props-note" style="margin-top:4px;">Data: UniProtKB/Swiss-Prot Tox-Prot (exported 26 Sep 2026); AlphaFold DB (v6); WHO snake antivenom guidelines, Annex 5 (TRS No. 1004); ProtT5 and ProstT5 embeddings via the ProtSpace notebook. World map base: Al MacDonald / Fritz Lekschas, &ldquo;simple-world-map&rdquo; (CC BY-SA 3.0), modified. Code: MIT; data, map and this page: CC BY-SA 4.0. Designed and directed by the author; all code was written by Claude (Anthropic). Not affiliated with UniProt, the Tox-Prot team, InterPro or WHO.</div>
+    </div>
+  </section>

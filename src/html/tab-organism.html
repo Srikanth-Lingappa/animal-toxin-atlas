@@ -1,0 +1,39 @@
+<!-- html/tab-organism.html: Organism tab. -->
+  <!-- ===== ABOUT TAB ===== -->
+  <!-- ===== ORGANISM TAB ===== -->
+  <section id="tab-organism" style="display:none;">
+    <div id="orgDirectory">
+      <h3 style="margin:0 0 4px;">Browse by source organism</h3>
+      <div class="insight-sub" style="margin-bottom:14px;">every organism this dataset has at least one characterized toxin record for — click a type below to jump straight to it, or click an organism to see its full protein-class breakdown and record list</div>
+      <input type="text" class="org-search" id="orgSearchInput" placeholder="filter organisms by name…">
+      <div class="catstrip" id="orgCatStrip" style="margin-bottom:16px;"></div>
+      <div id="orgDirList"></div>
+    </div>
+
+    <div id="orgDetailWrap" style="display:none;">
+      <button class="org-back" id="orgBackBtn">‹ All organisms</button>
+      <div class="dcat" id="orgCatChip" style="display:inline-flex;"></div>
+      <h2 class="dname" id="orgSciHeading" style="margin-top:8px;"></h2>
+      <div class="dcommon" id="orgCnHeading"></div>
+      <div class="org-badges" id="orgBadgesRow"></div>
+      <div class="statline" id="orgStatLine" style="border-bottom:1px solid var(--line); margin:14px 0 20px; padding-bottom:18px;"></div>
+
+      <h3 style="margin:0 0 6px;">Protein class composition</h3>
+      <div class="insight-sub" id="orgCompSub" style="margin-bottom:10px;"></div>
+      <div class="org-comp-toggle">
+        <button class="active" data-orgview="chart">Chart view</button>
+        <button data-orgview="list">List view</button>
+      </div>
+      <div id="orgCompChart" class="pie-wrap"></div>
+      <div id="orgCompList" class="barlist" style="display:none; margin-top:10px;"></div>
+
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:26px 0 10px; flex-wrap:wrap;">
+        <h3 style="margin:0;">Records for this organism</h3>
+        <span>
+          <button class="toolbtn" id="orgExportCsv">⇩ CSV</button>
+          <button class="toolbtn" id="orgExportFasta">⇩ FASTA</button>
+        </span>
+      </div>
+      <div id="orgRecordsList"></div>
+    </div>
+  </section>

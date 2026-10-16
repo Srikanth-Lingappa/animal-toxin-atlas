@@ -1,0 +1,30 @@
+/* css/02-hero-and-category-strip.css: Hero text and the animal-group strip. Files are joined in order; later rules override earlier ones. */
+/* ============ HERO / CATEGORY STRIP ============ */
+.hero{padding:22px 0 6px;}
+.hero-lede{
+  font-family:var(--font-ui); font-weight:400;
+  font-size:15px; line-height:1.6; color:var(--ink-dim); max-width:720px; margin:0 0 18px;
+}
+.catstrip{
+  display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px;
+}
+.chip{
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid var(--line); background:var(--bg-elev);
+  border-radius:20px; padding:7px 13px 7px 10px; cursor:pointer;
+  font-size:12.5px; color:var(--ink-dim); transition:border-color .12s, background .12s;
+  user-select:none;
+}
+.chip:hover{border-color:var(--line-strong);}
+.chip.active{border-color:var(--dot,var(--amber)); background:color-mix(in srgb, var(--dot,var(--amber)) 16%, var(--bg-elev)); color:var(--ink);}
+.chip .dot{width:8px;height:8px;border-radius:50%; background:var(--dot,var(--amber)); flex:none;}
+.chip .n{font-family:var(--font-ui); color:var(--faint); font-size:11px;}
+.chip.active .n{color:var(--ink-dim);}
+
+.statline{
+  display:flex; flex-wrap:wrap; gap:28px; padding:18px 0 24px;
+  border-bottom:1px solid var(--line); margin-bottom:22px;
+}
+.statline .s{display:flex; flex-direction:column; gap:2px;}
+.statline .s b{font-family:var(--font-ui); font-size:19px; font-weight:500; color:var(--ink);}
+.statline .s span{font-size:11px; color:var(--muted); text-transform:none;}

@@ -1,0 +1,38 @@
+<!-- html/tab-disulfides.html: Disulfides tab. -->
+  <!-- ===== DISULFIDES TAB ===== -->
+  <section id="tab-disulfides" style="display:none;">
+    <h3 style="margin:0 0 4px;">Disulfide bond landscape</h3>
+    <div class="insight-sub" id="dsIntro" style="margin-bottom:14px;"></div>
+    <div class="kpi-row" id="dsKpis"></div>
+
+    <details class="insight-note" open><summary>What this page shows</summary><div>
+      Disulfide bond positions come straight from UniProt's curated <code>Disulfide bond</code> feature (not predicted). Cysteines are numbered within the <b>mature chain only</b> where that boundary is annotated (signal peptide/propeptide cysteines are excluded, since they're cleaved off before secretion and aren't part of the final toxin). For each entry with fully-paired cysteines, bonds are re-expressed as a <b>connectivity pattern</b>: cysteines are numbered 1, 2, 3&hellip; in sequence order, and each bond is written as a pair of those numbers &mdash; e.g. <code>1-4, 2-5, 3-6</code> for the classic three-disulfide inhibitor cystine knot (ICK/knottin) topology. Because this numbering ignores actual sequence position, the <i>same</i> pattern can show up in toxins from completely unrelated animals &mdash; spiders, cone snails, scorpions &mdash; which is usually a sign of convergent evolution onto the same stable disulfide-locked scaffold, not shared ancestry. Entries with an odd cysteine count, or where the curated bonds don't fully pair every cysteine <i>within the mature chain</i>, are shown separately since a pattern label isn't meaningful for them. Each pattern card below also shows how often it recurs and what share of its members have a solved structure &mdash; a pattern that's both common and well-characterized structurally (like ICK/knottin) is generally a safer bet as a drug-design scaffold than a rare, structurally unexplored one. You can also color the Embedding Map (Toxin Relationships) and the Taxonomy tree by disulfide pattern to see whether a scaffold clusters by sequence, by lineage, or both.
+    </div></details>
+
+    <div class="viewtabs subtabs" style="border-bottom:1px solid var(--line); margin:6px 0 20px;">
+      <button class="active" data-dsub="patterns">Connectivity patterns</button>
+      <button data-dsub="counts">Bond counts</button>
+    </div>
+
+    <div id="ds-patterns">
+      <div class="ins-toolbar">
+        <h3 style="margin:0;">Most common connectivity patterns</h3>
+        <span class="insight-sub" id="dsPatternCount" style="margin:0;"></span>
+        <button class="toolbtn" id="dsExportCsv" style="margin-left:auto;">⇩ CSV</button>
+      </div>
+      <div class="insight-sub" style="margin-bottom:12px;">Each card is one complete pattern: how all the cysteines of a toxin are paired, numbered in order along the mature chain. For example <span style="font-family:var(--font-mono)">1-4, 2-5, 3-6</span> means the 1st cysteine bonds to the 4th, the 2nd to the 5th and the 3rd to the 6th. The number on the card is how many toxins share that exact pattern.</div>
+      <div class="card-grid" id="dsPatternGrid"></div>
+
+      <div class="ins-toolbar" style="margin-top:22px;">
+        <h3 style="margin:0;">Unpaired cysteine outliers</h3>
+        <span class="insight-sub" id="dsUnpairedCount" style="margin:0;"></span>
+      </div>
+      <div class="insight-sub" style="margin-bottom:10px;">Entries where the curated disulfide bonds leave one or more cysteines unmatched &mdash; sometimes a free catalytic/reactive thiol, sometimes an intermolecular (inter-chain) bond to a different protein, occasionally just a curation gap. Worth a manual look before relying on these for framework classification.</div>
+      <div class="card-grid" id="dsUnpairedGrid"></div>
+    </div>
+
+    <div id="ds-counts" style="display:none;">
+      <div class="plot-card"><h4>How many disulfide bonds do toxins typically have?</h4><div id="dsHistogram"></div></div>
+      <div class="plot-card" style="margin-top:22px;"><h4>Average disulfide bonds per animal group</h4><div id="dsCatChart" class="barlist"></div></div>
+    </div>
+  </section>

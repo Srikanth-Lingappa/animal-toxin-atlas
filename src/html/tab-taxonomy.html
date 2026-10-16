@@ -1,0 +1,29 @@
+<!-- html/tab-taxonomy.html: Taxonomy tab. -->
+  <!-- ===== TAXONOMY TAB ===== -->
+  <section id="tab-taxon" style="display:none;">
+    <h3 style="margin:0 0 4px;">Taxonomic tree of source organisms</h3>
+    <div class="insight-sub" id="taxIntro" style="margin-bottom:14px;"></div>
+    <div class="kpi-row" id="taxKpis"></div>
+
+    <details class="insight-note"><summary>How to read this</summary><div>
+      Built from NCBI's classification for each source organism, domain down to species. Use it to see how toxin coverage, structural data, and disulfide scaffolds are distributed across the animal kingdom &mdash; including cases where unrelated lineages (say, a spider and a cone snail) independently evolved the same disulfide scaffold. Long runs of single-child ancestry are compressed into one row, shown as a breadcrumb, so you're not scrolling through a dozen nested clades with nothing else branching off them.
+    </div></details>
+
+    <div class="tax-toolbar">
+      <div class="seg" id="taxColorMode">
+        <button class="active" data-m="cat">Animal group</button>
+        <button data-m="pdb">Structural coverage</button>
+        <button data-m="who">WHO importance</button>
+        <button data-m="ds">Disulfide pattern</button>
+        <button data-m="mech">Mechanism</button>
+      </div>
+      <input type="text" class="org-search" id="taxSearchInput" placeholder="find a species or clade…" style="margin-bottom:0; flex:1; min-width:160px;">
+      <span class="tax-match-nav" id="taxMatchNav" style="display:none;">
+        <button class="toolbtn" id="taxPrevMatch" title="previous match">&uarr;</button>
+        <button class="toolbtn" id="taxNextMatch" title="next match">&darr;</button>
+        <span id="taxMatchCount"></span>
+      </span>
+    </div>
+    <div class="tax-legend" id="taxLegend"></div>
+    <div class="tax-tree" id="taxTree"></div>
+  </section>

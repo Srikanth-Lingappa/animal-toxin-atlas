@@ -1,0 +1,24 @@
+<!-- html/tab-search.html: Similarity Search tab. -->
+  <!-- ===== SIMILARITY SEARCH TAB ===== -->
+  <section id="tab-search" style="display:none;">
+    <div class="hero" style="padding-top:22px; max-width:760px;">
+      <p class="hero-lede">Paste a protein or peptide sequence to find its closest matches among the 8,274 characterized toxins — a real local alignment (Smith-Waterman, BLOSUM62, affine gap penalties) run against every entry, not a keyword or heuristic search.</p>
+    </div>
+
+    <div class="seq-input-card">
+      <textarea class="seq-textarea" id="seqInput" placeholder="Paste a sequence (FASTA header lines are stripped automatically) — e.g. MKTLLLTLVVVTIVCLDLGYT..."></textarea>
+      <div class="seq-input-row">
+        <button class="searchbtn" id="runSearchBtn">Find similar toxins</button>
+        <button class="seq-example" id="tryExampleBtn">Try an example sequence</button>
+        <button class="seq-example" id="clearSearchBtn">Clear</button>
+        <span class="seq-meta" id="seqMeta"></span>
+      </div>
+      <div class="seq-progress" id="seqProgress">
+        <div class="ptrack"><div class="pfill" id="seqProgressFill"></div></div>
+        <div class="ptext" id="seqProgressText"></div>
+      </div>
+      <div class="seq-error" id="seqError"></div>
+    </div>
+
+    <div id="seqResultsWrap"></div>
+  </section>
