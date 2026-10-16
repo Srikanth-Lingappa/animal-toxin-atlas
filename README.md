@@ -4,6 +4,7 @@ An interactive browser for **8,274 reviewed UniProtKB/Swiss-Prot animal venom pr
 single HTML file that runs entirely in your browser: no server, no install, no account.
 
 **[Open the Atlas](https://srikanth-lingappa.github.io/animal-toxin-atlas/)**
+
 **Or:** download `index.html` and open it.
 
 ## What you can do with it
