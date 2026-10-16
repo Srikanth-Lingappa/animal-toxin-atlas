@@ -3,10 +3,10 @@ message: "If you use Animal Toxin Atlas, please cite UniProt and the Tox-Prot pr
 title: "Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot animal venom protein records"
 type: software
 version: 1.0.0
-date-released: "YYYY-MM-DD"            # fill in at release
+date-released: "2026-10-16"
 license: MIT
-repository-code: "https://github.com/<your-github-user>/animal-toxin-atlas"
-url: "https://<your-github-user>.github.io/animal-toxin-atlas/"
+repository-code: "https://github.com/srikanth-lingappa/animal-toxin-atlas"
+url: "https://srikanth-lingappa.github.io/animal-toxin-atlas/"
 abstract: >-
   A single-file, browser-based atlas of 8,274 reviewed UniProtKB/Swiss-Prot animal venom protein records with
   disulfide connectivity patterns, AlphaFold confidence, ProtT5/ProstT5 embedding maps, structural-gap and potency
@@ -21,7 +21,6 @@ keywords:
 authors:
   - family-names: "Lingappa"
     given-names: "Srikanth"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
 references:
   - type: article
     authors: [{name: "The UniProt Consortium"}]
