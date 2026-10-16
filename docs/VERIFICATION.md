@@ -36,16 +36,6 @@ numerical results (value, route, species, endpoint, conversion) are identical fo
 `npm test` loads the page, opens every tab at desktop and phone width, and checks for page errors, `NaN`/`undefined` text,
 horizontal overflow, and that the disulfide, pLDDT and structural-gap headline numbers equal the recomputation above.
 
-## Found and fixed during verification
-
-| Finding | Fix |
-|---|---|
-| Disulfide header counted 4,949 toxins instead of 4,938 (11 records with no usable pattern included) | counted from the pattern groups |
-| About and footer described the data selection inaccurately | rewritten to what the export contains |
-| ~19,000 text fields had stray spaced full stops left by removing evidence tags | cleaned in the data |
-| Statistics page overflowed on phone width | grid columns allowed to shrink |
-| 14 records had an AlphaFold model of a different length and were left out of every pLDDT value | model aligned to the UniProt sequence; pLDDT placed on the matching residues |
-
 ## Not covered
 
 Derived groupings (animal group, toxin class, disulfide patterns, potency parsing, WHO name matching, embedding
