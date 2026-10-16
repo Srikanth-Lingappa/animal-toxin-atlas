@@ -9,7 +9,6 @@
 | `afdb_partial_models.csv` | model sequence and pLDDT for the 14 records whose model covers part of the sequence | AlphaFold DB, same version |
 | `umap_prott5.csv`, `umap_prostt5.csv` | 2D UMAP coordinates | computed from ProtT5 / ProstT5 embeddings |
 | `embedding_input_mature.fasta` | the sequences embedded (mature region of each record) | `scripts/make_embedding_fasta.py` |
-
 | `uniprot_export_2026-09-26.tsv.gz` | the original UniProt export, exactly as downloaded (gzip-compressed) | manual download from uniprot.org |
 
 To check the dataset against the export: `gunzip -k data/uniprot_export_2026-09-26.tsv.gz` then
