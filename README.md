@@ -9,8 +9,6 @@ single HTML file that runs entirely in your browser: no server, no install.
 
 **Or:** download `index.html` and open it.
 
-(https://doi.org/10.5281/zenodo.23976887) ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg) 
-
 ## What you can do with it
 
 | Tab | What it gives you |
@@ -80,8 +78,10 @@ what it found, is in [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 ## Citing
 
 If you use the Animal Toxin Atlas in research, teaching, presentations, software development, or other work, please cite the project.
+
 Please cite UniProt and the Tox-Prot programme first, then this atlas.
-Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. Zenodo. DOI: https://doi.org/10.5281/zenodo.23976887 
+
+Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. Zenodo. DOI: https://doi.org/10.5281/zenodo.23976887 ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg) 
 Data: UniProt Tox-Prot export, retrieved September 2026. 
 
 ## Use of AI
