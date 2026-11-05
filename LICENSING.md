@@ -4,7 +4,7 @@ Two licences apply, because the tool combines original code with data and a map 
 
 | Part | Licence | Why |
 |---|---|---|
-| Code: `scripts/`, `src/css/`, `src/html/`, `src/js/`, `.github/`, `package.json` | **MIT** (`LICENSE`) | written for this project |
+| Code: `scripts/`, `src/css/`, `src/html/`, `src/js/`, `.github/` | **MIT** (`LICENSE`) | written for this project |
 | Dataset: `data/` | **CC BY-SA 4.0** (`LICENSE-DATA.txt`) | derived from UniProt and AlphaFold DB (both CC BY 4.0), plus this project's own layers |
 | Documentation: `README.md`, `docs/` | **CC BY-SA 4.0** | |
 | World map: `src/assets/world-map.svg` | **CC BY-SA 4.0** (adapted from a CC BY-SA 3.0 map) | share-alike, see `THIRD_PARTY.md` |
