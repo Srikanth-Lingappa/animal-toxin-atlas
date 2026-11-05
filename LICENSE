@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---------------------------------------------------------------------------
-Scope: this MIT licence covers the code in this repository (scripts/, tests/,
+Scope: this MIT licence covers the code in this repository (scripts/,
 src/css, src/html, src/js, build and CI files). The data, the documentation,
 the world map and the built single-file page (index.html), which embeds both,
 are under CC BY-SA 4.0: see LICENSE-DATA.txt and LICENSING.md.
