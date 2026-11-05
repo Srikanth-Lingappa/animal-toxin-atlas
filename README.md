@@ -69,7 +69,6 @@ docs/                       architecture, methods, data dictionary, verification
 python scripts/build_html.py                  # src/ + data/animal-toxin-atlas-data.json -> index.html
 python scripts/apply_layers.py --check        # the AlphaFold and embedding layers match their source files
 python scripts/verify_against_uniprot.py uniprotkb_export.tsv   # every record against the original UniProt export
-npm install && npm test                       # browser smoke test + headline numbers vs an independent recompute
 ```
 
 `scripts/apply_layers.py` needs [Biopython](https://biopython.org) (`pip install biopython`). To regenerate the data
