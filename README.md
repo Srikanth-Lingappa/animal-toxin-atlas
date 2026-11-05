@@ -9,7 +9,7 @@ single HTML file that runs entirely in your browser: no server, no install.
 
 **Or:** download `index.html` and open it.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg)] (https://doi.org/10.5281/zenodo.23976887)
+(https://doi.org/10.5281/zenodo.23976887) ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg) 
 
 ## What you can do with it
 
