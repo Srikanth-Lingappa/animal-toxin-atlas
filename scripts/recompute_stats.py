@@ -3,7 +3,7 @@
 
     python scripts/recompute_stats.py [--data data/animal-toxin-atlas-data.json] [--out stats.json]
 
-Written separately from the page's JavaScript so the two can be compared (tests/smoke.js compares a few of them).
+Written separately from the page's JavaScript so the two can be compared.
 Definitions are in docs/METHODS.md.
 """
 import argparse, json, collections, pathlib
