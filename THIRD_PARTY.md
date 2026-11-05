@@ -14,6 +14,5 @@ Animal Toxin Atlas code is MIT; the data, map and built page are CC BY-SA 4.0 (s
 | **Swiss-Prot amino acid composition**, release 2026_03 | reference ticks in the amino acid chart | from the UniProt release statistics (CC BY 4.0) |
 | **Inter** and **IBM Plex Mono** | typefaces, loaded from Google Fonts at run time | SIL Open Font Licence 1.1 |
 | **Biopython** | used by `scripts/apply_layers.py` only | Biopython License (BSD-style) |
-| **Puppeteer** | used by `tests/smoke.js` only | Apache-2.0 |
 
 The tool is not affiliated with, or endorsed by, UniProt, the Tox-Prot team, InterPro, EMBL-EBI or WHO.
