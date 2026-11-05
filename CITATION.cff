@@ -3,7 +3,7 @@ message: "If you use Animal Toxin Atlas, please cite UniProt and the Tox-Prot pr
 title: "Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot animal venom protein records"
 type: software
 version: 1.0.0
-date-released: "2026-10-16"
+date-released: "2026-11-05"
 license: MIT
 repository-code: "https://github.com/srikanth-lingappa/animal-toxin-atlas"
 url: "https://srikanth-lingappa.github.io/animal-toxin-atlas/"
