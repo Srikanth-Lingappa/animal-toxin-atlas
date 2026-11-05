@@ -141,4 +141,3 @@ file names give the order they are joined in; the `b`, `c`... files continue a s
 - Elements are found by `id` or `data-` attributes, set in the `html/` files. Tabs are `<section id="tab-...">`; the header
   buttons use `data-tab="organism | taxon | disulfides | who | convergence | search | insights | stats | about"`.
 - Dataset fields are short names (`fn`, `ts`, `pl`...); see `docs/DATA_DICTIONARY.md`.
-- Run `npm test` after a change: it opens every tab at desktop and phone width.
