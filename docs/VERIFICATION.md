@@ -1,7 +1,6 @@
 # Verification record
 
-What was checked on the data snapshot in this repository, and how to repeat it. The scripts are in `scripts/` and
-`tests/`.
+What was checked on the data snapshot in this repository, and how to repeat it. The scripts are in `scripts/`.
 
 ## Records against UniProt
 
@@ -31,10 +30,6 @@ Biopython's `ProteinAnalysis` (median absolute difference 0.0).
 The in vivo potency parser was run over every record's toxic dose text before and after the evidence-tag clean-up: the
 numerical results (value, route, species, endpoint, conversion) are identical for all 697 records that have a value.
 
-## Browser
-
-`npm test` loads the page, opens every tab at desktop and phone width, and checks for page errors, `NaN`/`undefined` text,
-horizontal overflow, and that the disulfide, pLDDT and structural-gap headline numbers equal the recomputation above.
 
 ## Not covered
 
