@@ -81,7 +81,9 @@ If you use the Animal Toxin Atlas in research, teaching, presentations, software
 
 Please cite UniProt and the Tox-Prot programme first, then this atlas.
 
-Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. Zenodo. DOI: https://doi.org/10.5281/zenodo.23976887 ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg) 
+Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. 
+Zenodo. DOI: https://doi.org/10.5281/zenodo.23976887 ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23976887.svg) 
+
 Data: UniProt Tox-Prot export, retrieved September 2026. 
 
 ## Use of AI
