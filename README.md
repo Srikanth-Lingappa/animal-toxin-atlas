@@ -90,8 +90,7 @@ report them.
 
 ## Contributing
 
-Bug reports and data corrections are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Data errors have their own
-issue template.
+Bug reports and data corrections are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Licence
 
