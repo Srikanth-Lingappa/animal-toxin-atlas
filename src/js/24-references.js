@@ -83,7 +83,7 @@ function renderReferences(){
   document.getElementById('citeCopyAtlas').addEventListener('click', function(){ copy(document.getElementById('citeAtlas').textContent, 'Citation copied'); });
   document.getElementById('citeCopyAll').addEventListener('click', function(){ copy(REFS.map(refText).join('\n\n'), 'References copied'); });
   document.getElementById('citeBib').addEventListener('click', function(){
-    var atlas = '@misc{animaltoxinatlas2026,\n  author = {Lingappa, Srikanth},\n  title = {Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records},\n  year = {2026},\n  note = {Data: UniProt Tox-Prot export, retrieved September 2026}\n}';
+    var atlas = '@misc{animaltoxinatlas2026,\n  author = {Lingappa, Srikanth},\n  title = {Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records},\n  year = {2026},\n  doi = {10.5281/zenodo.23976887},\n  publisher = {Zenodo},\n  note = {Data: UniProt Tox-Prot export, retrieved September 2026}\n}';
     triggerDownload('animal-toxin-atlas-references.bib', atlas+'\n\n'+REFS.map(refBib).join('\n\n')+'\n');
   });
 }
