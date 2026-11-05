@@ -59,7 +59,6 @@ index.html                  the tool (built file, served by GitHub Pages)
 src/                        the page source, split by area: css/, html/, js/, assets/ (see docs/ARCHITECTURE.md)
 data/                       the dataset and every data layer, with provenance
 scripts/                    build, data-layer and verification scripts
-tests/smoke.js              browser test
 docs/                       architecture, methods, data dictionary, verification record, release guide
 ```
 
@@ -77,15 +76,6 @@ npm install && npm test                       # browser smoke test + headline nu
 layers from scratch, see [`scripts/README.md`](scripts/README.md). The verification record, with what was checked and
 what it found, is in [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
-## Limitations
-
-- The toxin class and animal group are convenience groupings; they are not UniProt annotations.
-- Potency values are parsed from free text. Bounds (`>`, `<`) are skipped, and molar doses are converted to mg/kg using the mature chain's mass, and not for multi-chain complexes.
-- AlphaFold per-residue confidence is stored as whole numbers, so about 0.35% of residues can sit one band away from AlphaFold DB's own colouring. The mean pLDDT and the disordered percentage are exact.
-- Sequence properties (pI, charge, instability, GRAVY) use the stored sequence and do not account for cleavage or modifications.
-- Embedding layouts (UMAP) are not quantitative; neighbours and model agreement are measured on the 2D coordinates and are approximate.
-- UniProt features with an unknown end position (for example `<1..?`) are not drawn, and 163 mass-spectrometry entries tied to one named chain of a multi-chain toxin are not shown.
-
 ## Citing
 
 Please cite UniProt and the Tox-Prot programme first, then this atlas. See [`CITATION.cff`](CITATION.cff) (GitHub shows a
@@ -96,8 +86,8 @@ Please cite UniProt and the Tox-Prot programme first, then this atlas. See [`CIT
 The design of Animal Toxin Atlas (what to build, the data choices and how each feature should work) is the author's. All code
 in this repository, including the scripts, the page source and the tests, was written by Claude (Anthropic) under the
 author's direction, and the documentation was drafted the same way. The author reviewed and directed the work and
-checked the dataset against the original UniProt export (`docs/VERIFICATION.md`). Errors can still remain, so please
-report them through the issue templates.
+checked the dataset against the original UniProt export (`docs/VERIFICATION.md`). Errors can remain, so please
+report them.
 
 ## Contributing
 
