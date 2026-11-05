@@ -1600,7 +1600,7 @@ footer.foot a{color:var(--muted);}
         <div class="ic-sub">the atlas, its data, and the methods behind it</div>
         <div class="ic-body">
           <p style="margin:0 0 8px;">If this atlas helps your work, please cite the underlying resources &mdash; UniProt and the Tox-Prot programme first and foremost &mdash; and mention the atlas itself:</p>
-          <div class="cite-box" id="citeAtlas">Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records. Data: UniProt Tox-Prot export, retrieved September 2026.</div>
+          <div class="cite-box" id="citeAtlas">Lingappa, S. (2026). Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records (version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23976887. Data: UniProt Tox-Prot export, retrieved September 2026.</div>
           <div class="cite-actions">
             <button class="toolbtn" id="citeCopyAtlas">Copy</button>
             <button class="toolbtn" id="citeCopyAll">Copy all references</button>
@@ -1640,7 +1640,7 @@ footer.foot a{color:var(--muted);}
 
 <footer class="foot">
   <div class="shell">
-    <p>Animal Toxin Atlas is a browsing tool built from a UniProtKB/Swiss-Prot data export. All protein data belongs to UniProt and its contributing databases (Consortium: UniProt Consortium). This page runs entirely in your browser: searches and pasted sequences are never sent anywhere. The only outside request is the font stylesheet from Google Fonts.</p>
+    <p>Animal Toxin Atlas is a browsing tool built from a UniProtKB/Swiss-Prot data export. All protein data belongs to UniProt and its contributing databases (Consortium: UniProt Consortium). This page runs entirely in your browser: searches and pasted sequences are never sent anywhere.</p>
   </div>
 </footer>
 
@@ -6426,7 +6426,7 @@ function renderReferences(){
   document.getElementById('citeCopyAtlas').addEventListener('click', function(){ copy(document.getElementById('citeAtlas').textContent, 'Citation copied'); });
   document.getElementById('citeCopyAll').addEventListener('click', function(){ copy(REFS.map(refText).join('\n\n'), 'References copied'); });
   document.getElementById('citeBib').addEventListener('click', function(){
-    var atlas = '@misc{animaltoxinatlas2026,\n  author = {Lingappa, Srikanth},\n  title = {Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records},\n  year = {2026},\n  note = {Data: UniProt Tox-Prot export, retrieved September 2026}\n}';
+    var atlas = '@misc{animaltoxinatlas2026,\n  author = {Lingappa, Srikanth},\n  title = {Animal Toxin Atlas: an interactive browser for UniProtKB/Swiss-Prot Tox-Prot animal toxin records},\n  year = {2026},\n  doi = {10.5281/zenodo.23976887},\n  publisher = {Zenodo},\n  note = {Data: UniProt Tox-Prot export, retrieved September 2026}\n}';
     triggerDownload('animal-toxin-atlas-references.bib', atlas+'\n\n'+REFS.map(refBib).join('\n\n')+'\n');
   });
 }
